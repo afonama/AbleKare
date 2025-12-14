@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbleKare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+</head>
+<body id="mainContent">
+    <header>
+  <nav class="navbar">
+    <div class="logo">AbleKare</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="join-btn">Join Us</button>
+    <div class="hamburger" id="hamburger">
+        ☰
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+    <main>
+        <div class="hero" id="#">
+            <div class="hero-content">
+                <h1>Trusted Care, <span style="color: skyblue;">Empowered Living</span></h1>
+                <p>Connecting People with Disabilities to verified, Compassionate caregivers</p>
+                <div class="hero-buttons">
+                    <button class="btn primary-btn" id="openRequestBtn" type="button">Request a caregiver</button>
+                    <button class="btn secondary-btn" id="openCaregiverBtn" type="button">Become a caregiver</button>
+                </div>
+
+                <div id="overlayRequest" class="overlay">
+                    <div class="overlay-content">
+                        <h2>Request a Caregiver</h2>
+
+                        <form id="requestForm">
+                            <label for="">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]+" title="Only letters are allowed">
+
+                            <label for="">Age</label>
+                            <input type="number" name="age" min="18">
+                            
+                            <label for="">Phone Number</label>
+                            <input type="number" name="number">
+                            
+                            <label for="">Email Address</label>
+                            <input type="email" name="email" id="emailInput">
+
+                            <label for="">Residential Address</label>
+                            <input type="text" name="address">
+                            
+                            <label for="careType">What type of care do you need?</label>
+                                <select name="careType" id="careType" required>
+                                    <option value="">-- Select Care Type --</option>
+                                    <option value="Mobility Assistance">Mobility Assistance</option>
+                                    <option value="Personal Hygiene / Bathing">Personal Hygiene / Bathing</option>
+                                    <option value="Dressing Assistance">Dressing Assistance</option>
+                                    <option value="Feeding / Meal Assistance">Feeding / Meal Assistance</option>
+                                    <option value="Medication Management">Medication Management</option>
+                                    <option value="Physical Therapy / Exercises">Physical Therapy / Exercises</option>
+                                    <option value="Companionship / Social Support">Companionship / Social Support</option>
+                                    <option value="Household Tasks / Cleaning">Household Tasks / Cleaning</option>
+                                    <option value="Transportation Assistance">Transportation Assistance</option>
+                                    <option value="Communication Assistance">Communication Assistance</option>
+                                    <option value="Specialized Equipment Handling">Specialized Equipment Handling</option>
+                                </select>
+
+                            <label>How long do you need a caregiver </label>
+                            <input type="text" name="hoursPerWeek" required>
+
+                            <label>Do you require a live-in or live out caregiver</label>
+                            <select name="careMode" required>
+                                <option>Live-in</option>
+                                <option>Live-out</option>
+                            </select>
+
+                            <label>Is there anything you'll like us to know</label>
+                            <textarea name="challenges"></textarea>
+
+                            <label>Start Date – End Date</label>
+                           <div class="date-range">
+                                <input type="date" name="startDate" required>
+                                <input type="date" name="endDate" required>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+
+                        <button class="closeOverlay" data-target="overlayRequest">X</button>
+                    </div>
+                </div>
+
+                <div id="overlayCaregiver" class="overlay">
+                    <div class="overlay-content">
+                        <h2>Become a Caregiver</h2>
+                        <button class="closeOverlay" data-target="overlayCaregiver">X</button>
+
+                        <form id="caregiverForm">
+                            <label> Full Name</label>
+                             <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]+" title="Only letters are allowed">
+
+                            <label>Your Age</label>
+                            <input type="number" name="age" required min="18" max="55">
+                            
+                            <label for="">Phone Number</label>
+                            <input type="number" name="number">
+                            
+                            <label for="">Email Address</label>
+                            <input type="email" name="email" id="emailInput">
+
+                            <label for="">Residential Address</label>
+                            <input type="text" name="address">
+
+                            <label>Your Experience (Years)</label>
+                            <input type="number" name="experience" required>
+
+                            <label>Why do you want to be a caregiver?</label>
+                            <textarea name="reason" required></textarea>
+
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="about-section" id="about">
+            <h2>AbleKare</h2>
+
+            <p>
+                AbleKare is a digital platform dedicated to <em>safe, professional and trustworthy care</em> for people with disabilities.
+                With an AI guided system that helps <em>understand your needs</em>. We match you with the caregivers who are best fit.
+                Your information is protected with secure blockchain-based purposes <strong>to ensure privacy and dignity in every step</strong>
+                Whether you need short term assistance or long-term support. AbleKare offers flexible solutions
+                to ensure every individual receives the support they need to live empowered lives.
+            </p>
+
+            <div class="mv-container">
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>
+                        To provide accessible, reliable, and compassionate care services that empower individuals with disabilities to live fulfilling and independent lives.
+                    </p>
+                </div>
+
+                <div class="vision-box">
+                    <h3>Our Vision</h3>
+                    <p>
+                        To become the most trusted global platform for inclusive care, where every person regardless of ability can access the support they need with dignity and respect.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <h2 class="services-title">Our Services</h2>
+            <p class="services-p">We are committed to serve the physically challenged community</p>
+            <div class="services-container">
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="images/clock.png" class="service-img" alt=""></div>
+                    <h3>Short-term Support</h3>
+                    <div class="line"></div>
+                    <p>
+                        Immediate assistance designed to help individuals manage urgent needs
+                        and regain stability within a short period.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"> <img src="images/long-term-care_18240296.png" class="service-img" alt=""></div>
+                    <h3>Long Term Support</h3>
+                    <div class="line"></div>
+                    <p>
+                        Sustainable and ongoing guidance focused on helping individuals achieve
+                        stability, growth, and long-lasting progress.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="images/vision-care_18544333.png" class="service-img" alt="" srcset=""></div>
+                    <h3>Caregiving Program</h3>
+                    <div class="line"></div>
+                    <p>
+                        Compassionate and professional care services designed to support daily
+                        living, emotional well-being, and personal comfort.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <section class="why-section">
+            <h2 class="why-title">Why Choose Us</h2>
+            <p class="why-subtitle">
+                We are committed to providing safe, reliable, and compassionate support for every individual.
+            </p>
+
+            <div class="why-container">
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/nurse_16817246.png" alt="" class="service-img"> </div>
+                    <h3>Verified & Safe Caregivers</h3>
+                    <p>Through vetting, background checks and safety policies you can trust</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/AI Matching.jpg" alt=""  class="service-img"> </div>
+                    <h3>Personalized AI Matching</h3>
+                    <p>Smart matching that pairs you with the caregiver best suited for your needs</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/safety-at-work.png" class="service-img"> </div>
+                    <h3>Safety-First Policies</h3>
+                    <p>Your well-being is protected through strict safety guidelines.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/prestige.png" class="service-img">  </div>
+                    <h3>Dignity & Respect</h3>
+                    <p>Every individual is treated with compassion and understanding.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/data-security.png" class="service-img"></div>
+                    <h3>Secures Data Privacy</h3>
+                    <p>Your data is protected with reliable blockchain-based security</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"> <img src="images/price-tag.png" alt="" class="service-img" srcset=""> </div>
+                    <h3>Flexible & Transparent Pricing</h3>
+                    <p>Multiple payment options with clear honest pricing</p>
+                </div>
+            </div>
+        </section>
+        <section class="how-works-section">
+            <h2 class="how-title">How It Works</h2>
+            <p class="how-subtext">A simple and reliable process built to support your caregiving needs.</p>
+
+            <div class="how-steps">
+
+                <div class="how-step">
+                    <span class="how-icon"><img src="images/raise-hand.png" class="service-img"></span>
+                    <h3>Tell Us Your Needs</h3>
+                    <p>Share your support requirements so we understand how best to help.</p>
+                </div>
+
+                <div class="how-step">
+                    <span class="how-icon"> <img src="images/game.png" alt="" class="service-img"></span>
+                    <h3>Get Matched With a Caregiver</h3>
+                    <p>We connect you with a trained caregiver who fits your needs.</p>
+                </div>
+                <div class="how-step">
+                    <span class="how-icon"> <img src="images/Physical-Therapy--Streamline-Outlined-Material-Pro.png" alt="" class="service-img"> </span>
+                    <h3>Start Receiving Support</h3>
+                    <p>Your personalized care plan begins with reliable ongoing assistance.</p>
+                </div>
+                <div class="how-step">
+                    <span class="how-icon"><img src="images/Planner-Review--Streamline-Outlined-Material-Pro.png" class="service-img"> </span>
+                    <h3>Monitor Progress & Stay Connected</h3>
+                    <p>Track improvements and communicate anytime for updates or changes.</p>
+                </div>
+
+            </div>
+            </div>
+        </section>
+        <section class="community-section">
+            <h2 class="community-title">Community Voices</h2>
+            <p class="community-subtext">Hear from those who have experienced our care first-hand.</p>
+
+            <div class="community-grid">
+
+                <div class="community-card">
+                    <p>"The caregivers were attentive, professional, and truly caring. I felt supported every step of the way."</p>
+                    <span>- Afonama Emmanuel</span>
+                </div>
+
+                <div class="community-card">
+                    <p>"I was matched with the perfect caregiver for my needs. Their dedication made a huge difference."</p>
+                    <span>- Michael S.</span>
+                </div>
+
+                <div class="community-card">
+                    <p>"The support I received improved my daily life tremendously. I feel safer and more confident now."</p>
+                    <span>- Aisha K.</span>
+                </div>
+
+                <div class="community-card">
+                    <p>"Transparent, professional, and compassionate service. I highly recommend this to anyone in need of care."</p>
+                    <span>- Daniel R.</span>
+                </div>
+
+            </div>
+        </section>
+        <section class="contact-section" id="contact">
+            <h2 class="contact-title">Get in Touch</h2>
+            <p class="contact-subtext">Have questions? We are here to help.</p>
+
+            <div class="contact-container">
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="info-item">
+                        <span class="info-icon"> <img src="images/Send-Alt--Streamline-Outlined-Material-Pro.png" class="service-img"> </span>
+                        <div>
+                            <p>Email</p>
+                            <p>ablekare01@gmail.com</p>
+                            <p>info@ablekare.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon"> <img src="images/Phone-In-Talk--Streamline-Outlined-Material-Pro.png" class="service-img" alt="" srcset=""></span>
+                        <div>
+                            <p>Phone</p>
+                            <p>+234 8089630933</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" id="fullName" required>
+                        <input type="email" placeholder="Your Email" id="emailInput" required>
+                        <input type="number" placeholder="Phone Number" id="phoneNumber" required>
+                        <textarea placeholder="Your Message" rows="5" id="message" required></textarea>
+                        <button type="submit" id="submit" method="post">Send Message</button>
+                    </form>
+                    <!-- <p id="status"></p> -->
+                    <h4 style="margin-top: 20px;" id="myH3"></h4>
+                </div>
+                
+
+            </div>
+        </section>
+    </main>
+    
+    
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <div class="footer-logo">AbleKare</div>
+                <p>Your trusted partner in care and support.</p>
+                <p>Providing compassionate service since 2025.</p>
+                <div class="footer-socials">
+                <a href="" target="_blank" aria-label="Facebook"><img src="images/fb-removebg-preview.png" class="service-img" alt="Facebook"></a>
+                <a href="http://X.com/AbleKare" target="_blank" aria-label="X (Twitter)"> <img src="images/sl_z_072523_61700_01-removebg-preview.png" class="service-img" alt="X (Twitter)"></a>
+                <a href="http://Instagram.com/ablekare/" target="_blank" aria-label="Instagram"><img src="images/Instagram-removebg-preview.png" class="service-img" alt="Instagram"></a>
+                <a href="http://LinkedIn.com/company/ablekare" target="_blank" aria-label="LinkedIn"><img src="images/icons8-linkedin-240.png" class="service-img" alt="LinkedIn"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Caregiver</a></li>
+                    <li><a href="#">Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="footer-bottom">© 2025 AbleKare. All rights reserved.</p>
+    </footer>
+    <div id="thankYouPopup" class="thankyou-overlay" style="display:none;">
+        <div class="thankyou-box">
+            <h2>Thank you!</h2>
+            <p>Your submission has been received. We will contact you shortly.</p>
+            <button id="closeThankYou">OK</button>
+        </div>
+    </div>
+
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        
+        (function(){
+            emailjs.init({
+                publicKey: "QtmixyFAA5oudklnL",
+            });
+        })();
+    </script>
+       <script src="js/script.js" defer></script>       
+</body>
+</html>
